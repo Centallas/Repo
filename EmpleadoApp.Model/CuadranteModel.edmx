@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CuadranteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Empleadoes">
+          <Key>
+            <PropertyRef Name="IdEmpleado" />
+          </Key>
+          <Property Name="IdEmpleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strNombre" Type="nvarchar(max)" />
+          <Property Name="IdRol" Type="int" Nullable="false" />
+          <Property Name="strCargo" Type="nvarchar(max)" />
+          <Property Name="IdProfesion" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCHComponente">
+          <Key>
+            <PropertyRef Name="IdComponente" />
+          </Key>
+          <Property Name="IdComponente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strNombreComponente" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="strDescripcionComponente" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="dblPesoComponente" Type="float" />
+          <Property Name="logActivo" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblCHComponenteRol">
+          <Key>
+            <PropertyRef Name="IdComponenteRol" />
+          </Key>
+          <Property Name="IdComponenteRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdComponente" Type="int" Nullable="false" />
+          <Property Name="IdRol" Type="int" Nullable="false" />
+          <Property Name="IdEvaluacion" Type="int" Nullable="false" />
+          <Property Name="IdArea" Type="int" />
+          <Property Name="dblPeso" Type="float" />
+          <Property Name="strDocumentoFormacion" Type="varchar" MaxLength="200" />
+          <Property Name="logEstado" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblCHEmpleado">
+          <Key>
+            <PropertyRef Name="IdEmpleado" />
+          </Key>
+          <Property Name="IdEmpleado" Type="int" Nullable="false" />
+          <Property Name="strNombre" Type="varchar" MaxLength="500" />
+          <Property Name="IdProfesion" Type="varchar" MaxLength="10" />
+          <Property Name="strProfesion" Type="varchar" MaxLength="500" />
+          <Property Name="strCargo" Type="varchar" MaxLength="500" />
+          <Property Name="IdRol" Type="int" />
+          <Property Name="IdBarrio" Type="varchar" MaxLength="10" />
+          <Property Name="strBarrio" Type="varchar" MaxLength="200" />
+          <Property Name="IdUnidad" Type="varchar" MaxLength="10" />
+          <Property Name="strUnidad" Type="varchar" MaxLength="200" />
+          <Property Name="IdRegional" Type="varchar" MaxLength="50" />
+          <Property Name="strRegional" Type="varchar" MaxLength="50" />
+          <Property Name="IdProceso" Type="varchar" MaxLength="10" />
+          <Property Name="strProceso" Type="varchar" MaxLength="200" />
+          <Property Name="IdSubProceso" Type="varchar" MaxLength="10" />
+          <Property Name="strSubProceso" Type="varchar" MaxLength="200" />
+          <Property Name="IdJefe" Type="varchar" MaxLength="20" />
+          <Property Name="strNombreJefe" Type="varchar" MaxLength="500" />
+          <Property Name="dtmFechaRetiro" Type="datetime" />
+          <Property Name="LogClienteProveedor" Type="bit" />
+          <Property Name="LogGerenteRecursosH" Type="bit" />
+          <Property Name="intSecuencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LogEvaluar" Type="bit" />
+          <Property Name="strUsuario" Type="varchar" MaxLength="100" />
+          <Property Name="strContrasena" Type="varchar" MaxLength="100" />
+          <Property Name="logObjetivosLegalizados" Type="bit" />
+          <Property Name="logHabilitarIngresoObjPeriodoCerrado" Type="bit" />
+          <Property Name="logSuperUsuario" Type="bit" />
+          <Property Name="strGrupoPago" Type="nvarchar" MaxLength="500" />
+          <Property Name="strUbicacion" Type="varchar" MaxLength="500" />
+          <Property Name="intNivel" Type="int" />
+          <Property Name="strSexo" Type="char" MaxLength="2" />
+          <Property Name="strRutaImagenEmpleado" Type="varchar" MaxLength="200" />
+          <Property Name="intPuntosAcumulados" Type="int" />
+          <Property Name="logObjetivosAprobadosJefe" Type="bit" />
+          <Property Name="strUsuarioRed" Type="varchar" MaxLength="50" />
+          <Property Name="LogAplicaIntegracion" Type="bit" />
+          <Property Name="logAdmonVicepresidencia" Type="bit" />
+          <Property Name="IdVicepresidenciaAdm" Type="varchar" MaxLength="50" />
+          <Property Name="Identificacion" Type="varchar" MaxLength="500" />
+          <Property Name="strCustom2" Type="varchar" MaxLength="500" />
+          <Property Name="logEsJefeEmp" Type="bit" />
+          <Property Name="logEvaluadoPeriodoPrueba" Type="bit" />
+          <Property Name="LogProrrogaPeriodoPrueba" Type="bit" />
+          <Property Name="logAdmonPeriodoPrueba" Type="bit" />
+          <Property Name="IdPais" Type="int" />
+          <Property Name="dtmFechaIngreso" Type="datetime" />
+          <Property Name="strNombreGeneralista" Type="nchar" MaxLength="100" />
+          <Property Name="strUnidadFuncional" Type="nchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="tblCHRol">
+          <Key>
+            <PropertyRef Name="IdRol" />
+          </Key>
+          <Property Name="IdRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strNombreRol" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="logEsJefe" Type="bit" />
+        </EntityType>
+        <Association Name="FK_tblCHComponenteRol_tblCHComponente">
+          <End Role="tblCHComponente" Type="Self.tblCHComponente" Multiplicity="1" />
+          <End Role="tblCHComponenteRol" Type="Self.tblCHComponenteRol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCHComponente">
+              <PropertyRef Name="IdComponente" />
+            </Principal>
+            <Dependent Role="tblCHComponenteRol">
+              <PropertyRef Name="IdComponente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CuadranteModelStoreContainer">
+          <EntitySet Name="Empleadoes" EntityType="Self.Empleadoes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCHComponente" EntityType="Self.tblCHComponente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCHComponenteRol" EntityType="Self.tblCHComponenteRol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCHEmpleado" EntityType="Self.tblCHEmpleado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCHRol" EntityType="Self.tblCHRol" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tblCHComponenteRol_tblCHComponente" Association="Self.FK_tblCHComponenteRol_tblCHComponente">
+            <End Role="tblCHComponente" EntitySet="tblCHComponente" />
+            <End Role="tblCHComponenteRol" EntitySet="tblCHComponenteRol" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CuadranteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Empleadoes">
+          <Key>
+            <PropertyRef Name="IdEmpleado" />
+          </Key>
+          <Property Name="IdEmpleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strNombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdRol" Type="Int32" Nullable="false" />
+          <Property Name="strCargo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdProfesion" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCHComponente">
+          <Key>
+            <PropertyRef Name="IdComponente" />
+          </Key>
+          <Property Name="IdComponente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strNombreComponente" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="strDescripcionComponente" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dblPesoComponente" Type="Double" />
+          <Property Name="logActivo" Type="Boolean" />
+          <NavigationProperty Name="tblCHComponenteRol" Relationship="Self.FK_tblCHComponenteRol_tblCHComponente" FromRole="tblCHComponente" ToRole="tblCHComponenteRol" />
+        </EntityType>
+        <EntityType Name="tblCHComponenteRol">
+          <Key>
+            <PropertyRef Name="IdComponenteRol" />
+          </Key>
+          <Property Name="IdComponenteRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdComponente" Type="Int32" Nullable="false" />
+          <Property Name="IdRol" Type="Int32" Nullable="false" />
+          <Property Name="IdEvaluacion" Type="Int32" Nullable="false" />
+          <Property Name="IdArea" Type="Int32" />
+          <Property Name="dblPeso" Type="Double" />
+          <Property Name="strDocumentoFormacion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="logEstado" Type="Boolean" />
+          <NavigationProperty Name="tblCHComponente" Relationship="Self.FK_tblCHComponenteRol_tblCHComponente" FromRole="tblCHComponenteRol" ToRole="tblCHComponente" />
+        </EntityType>
+        <EntityType Name="tblCHEmpleado">
+          <Key>
+            <PropertyRef Name="IdEmpleado" />
+          </Key>
+          <Property Name="IdEmpleado" Type="Int32" Nullable="false" />
+          <Property Name="strNombre" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IdProfesion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="strProfesion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="strCargo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IdRol" Type="Int32" />
+          <Property Name="IdBarrio" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="strBarrio" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="IdUnidad" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="strUnidad" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="IdRegional" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="strRegional" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdProceso" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="strProceso" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="IdSubProceso" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="strSubProceso" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="IdJefe" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="strNombreJefe" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="dtmFechaRetiro" Type="DateTime" Precision="3" />
+          <Property Name="LogClienteProveedor" Type="Boolean" />
+          <Property Name="LogGerenteRecursosH" Type="Boolean" />
+          <Property Name="intSecuencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LogEvaluar" Type="Boolean" />
+          <Property Name="strUsuario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="strContrasena" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="logObjetivosLegalizados" Type="Boolean" />
+          <Property Name="logHabilitarIngresoObjPeriodoCerrado" Type="Boolean" />
+          <Property Name="logSuperUsuario" Type="Boolean" />
+          <Property Name="strGrupoPago" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="strUbicacion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="intNivel" Type="Int32" />
+          <Property Name="strSexo" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="strRutaImagenEmpleado" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="intPuntosAcumulados" Type="Int32" />
+          <Property Name="logObjetivosAprobadosJefe" Type="Boolean" />
+          <Property Name="strUsuarioRed" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LogAplicaIntegracion" Type="Boolean" />
+          <Property Name="logAdmonVicepresidencia" Type="Boolean" />
+          <Property Name="IdVicepresidenciaAdm" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Identificacion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="strCustom2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="logEsJefeEmp" Type="Boolean" />
+          <Property Name="logEvaluadoPeriodoPrueba" Type="Boolean" />
+          <Property Name="LogProrrogaPeriodoPrueba" Type="Boolean" />
+          <Property Name="logAdmonPeriodoPrueba" Type="Boolean" />
+          <Property Name="IdPais" Type="Int32" />
+          <Property Name="dtmFechaIngreso" Type="DateTime" Precision="3" />
+          <Property Name="strNombreGeneralista" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="strUnidadFuncional" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblCHRol">
+          <Key>
+            <PropertyRef Name="IdRol" />
+          </Key>
+          <Property Name="IdRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strNombreRol" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="logEsJefe" Type="Boolean" />
+        </EntityType>
+        <Association Name="FK_tblCHComponenteRol_tblCHComponente">
+          <End Role="tblCHComponente" Type="Self.tblCHComponente" Multiplicity="1" />
+          <End Role="tblCHComponenteRol" Type="Self.tblCHComponenteRol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCHComponente">
+              <PropertyRef Name="IdComponente" />
+            </Principal>
+            <Dependent Role="tblCHComponenteRol">
+              <PropertyRef Name="IdComponente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CuadranteEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Empleadoes" EntityType="Self.Empleadoes" />
+          <EntitySet Name="tblCHComponente" EntityType="Self.tblCHComponente" />
+          <EntitySet Name="tblCHComponenteRol" EntityType="Self.tblCHComponenteRol" />
+          <EntitySet Name="tblCHEmpleado" EntityType="Self.tblCHEmpleado" />
+          <EntitySet Name="tblCHRol" EntityType="Self.tblCHRol" />
+          <AssociationSet Name="FK_tblCHComponenteRol_tblCHComponente" Association="Self.FK_tblCHComponenteRol_tblCHComponente">
+            <End Role="tblCHComponente" EntitySet="tblCHComponente" />
+            <End Role="tblCHComponenteRol" EntitySet="tblCHComponenteRol" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CuadranteModelStoreContainer" CdmEntityContainer="CuadranteEntities">
+          <EntitySetMapping Name="Empleadoes">
+            <EntityTypeMapping TypeName="CuadranteModel.Empleadoes">
+              <MappingFragment StoreEntitySet="Empleadoes">
+                <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+                <ScalarProperty Name="strNombre" ColumnName="strNombre" />
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+                <ScalarProperty Name="strCargo" ColumnName="strCargo" />
+                <ScalarProperty Name="IdProfesion" ColumnName="IdProfesion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCHComponente">
+            <EntityTypeMapping TypeName="CuadranteModel.tblCHComponente">
+              <MappingFragment StoreEntitySet="tblCHComponente">
+                <ScalarProperty Name="IdComponente" ColumnName="IdComponente" />
+                <ScalarProperty Name="strNombreComponente" ColumnName="strNombreComponente" />
+                <ScalarProperty Name="strDescripcionComponente" ColumnName="strDescripcionComponente" />
+                <ScalarProperty Name="dblPesoComponente" ColumnName="dblPesoComponente" />
+                <ScalarProperty Name="logActivo" ColumnName="logActivo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCHComponenteRol">
+            <EntityTypeMapping TypeName="CuadranteModel.tblCHComponenteRol">
+              <MappingFragment StoreEntitySet="tblCHComponenteRol">
+                <ScalarProperty Name="IdComponenteRol" ColumnName="IdComponenteRol" />
+                <ScalarProperty Name="IdComponente" ColumnName="IdComponente" />
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+                <ScalarProperty Name="IdEvaluacion" ColumnName="IdEvaluacion" />
+                <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+                <ScalarProperty Name="dblPeso" ColumnName="dblPeso" />
+                <ScalarProperty Name="strDocumentoFormacion" ColumnName="strDocumentoFormacion" />
+                <ScalarProperty Name="logEstado" ColumnName="logEstado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCHEmpleado">
+            <EntityTypeMapping TypeName="CuadranteModel.tblCHEmpleado">
+              <MappingFragment StoreEntitySet="tblCHEmpleado">
+                <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+                <ScalarProperty Name="strNombre" ColumnName="strNombre" />
+                <ScalarProperty Name="IdProfesion" ColumnName="IdProfesion" />
+                <ScalarProperty Name="strProfesion" ColumnName="strProfesion" />
+                <ScalarProperty Name="strCargo" ColumnName="strCargo" />
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+                <ScalarProperty Name="IdBarrio" ColumnName="IdBarrio" />
+                <ScalarProperty Name="strBarrio" ColumnName="strBarrio" />
+                <ScalarProperty Name="IdUnidad" ColumnName="IdUnidad" />
+                <ScalarProperty Name="strUnidad" ColumnName="strUnidad" />
+                <ScalarProperty Name="IdRegional" ColumnName="IdRegional" />
+                <ScalarProperty Name="strRegional" ColumnName="strRegional" />
+                <ScalarProperty Name="IdProceso" ColumnName="IdProceso" />
+                <ScalarProperty Name="strProceso" ColumnName="strProceso" />
+                <ScalarProperty Name="IdSubProceso" ColumnName="IdSubProceso" />
+                <ScalarProperty Name="strSubProceso" ColumnName="strSubProceso" />
+                <ScalarProperty Name="IdJefe" ColumnName="IdJefe" />
+                <ScalarProperty Name="strNombreJefe" ColumnName="strNombreJefe" />
+                <ScalarProperty Name="dtmFechaRetiro" ColumnName="dtmFechaRetiro" />
+                <ScalarProperty Name="LogClienteProveedor" ColumnName="LogClienteProveedor" />
+                <ScalarProperty Name="LogGerenteRecursosH" ColumnName="LogGerenteRecursosH" />
+                <ScalarProperty Name="intSecuencia" ColumnName="intSecuencia" />
+                <ScalarProperty Name="LogEvaluar" ColumnName="LogEvaluar" />
+                <ScalarProperty Name="strUsuario" ColumnName="strUsuario" />
+                <ScalarProperty Name="strContrasena" ColumnName="strContrasena" />
+                <ScalarProperty Name="logObjetivosLegalizados" ColumnName="logObjetivosLegalizados" />
+                <ScalarProperty Name="logHabilitarIngresoObjPeriodoCerrado" ColumnName="logHabilitarIngresoObjPeriodoCerrado" />
+                <ScalarProperty Name="logSuperUsuario" ColumnName="logSuperUsuario" />
+                <ScalarProperty Name="strGrupoPago" ColumnName="strGrupoPago" />
+                <ScalarProperty Name="strUbicacion" ColumnName="strUbicacion" />
+                <ScalarProperty Name="intNivel" ColumnName="intNivel" />
+                <ScalarProperty Name="strSexo" ColumnName="strSexo" />
+                <ScalarProperty Name="strRutaImagenEmpleado" ColumnName="strRutaImagenEmpleado" />
+                <ScalarProperty Name="intPuntosAcumulados" ColumnName="intPuntosAcumulados" />
+                <ScalarProperty Name="logObjetivosAprobadosJefe" ColumnName="logObjetivosAprobadosJefe" />
+                <ScalarProperty Name="strUsuarioRed" ColumnName="strUsuarioRed" />
+                <ScalarProperty Name="LogAplicaIntegracion" ColumnName="LogAplicaIntegracion" />
+                <ScalarProperty Name="logAdmonVicepresidencia" ColumnName="logAdmonVicepresidencia" />
+                <ScalarProperty Name="IdVicepresidenciaAdm" ColumnName="IdVicepresidenciaAdm" />
+                <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+                <ScalarProperty Name="strCustom2" ColumnName="strCustom2" />
+                <ScalarProperty Name="logEsJefeEmp" ColumnName="logEsJefeEmp" />
+                <ScalarProperty Name="logEvaluadoPeriodoPrueba" ColumnName="logEvaluadoPeriodoPrueba" />
+                <ScalarProperty Name="LogProrrogaPeriodoPrueba" ColumnName="LogProrrogaPeriodoPrueba" />
+                <ScalarProperty Name="logAdmonPeriodoPrueba" ColumnName="logAdmonPeriodoPrueba" />
+                <ScalarProperty Name="IdPais" ColumnName="IdPais" />
+                <ScalarProperty Name="dtmFechaIngreso" ColumnName="dtmFechaIngreso" />
+                <ScalarProperty Name="strNombreGeneralista" ColumnName="strNombreGeneralista" />
+                <ScalarProperty Name="strUnidadFuncional" ColumnName="strUnidadFuncional" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCHRol">
+            <EntityTypeMapping TypeName="CuadranteModel.tblCHRol">
+              <MappingFragment StoreEntitySet="tblCHRol">
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+                <ScalarProperty Name="strNombreRol" ColumnName="strNombreRol" />
+                <ScalarProperty Name="logEsJefe" ColumnName="logEsJefe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

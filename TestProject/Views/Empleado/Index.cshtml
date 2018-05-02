@@ -1,0 +1,59 @@
+﻿@model EmpleadoApp.Model.Empleadoes
+
+@{
+    Layout = null;
+
+
+}
+
+<!DOCTYPE html>
+
+<script src="http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+
+
+<script language="javascript" type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#example').dataTable({
+            "ajax": {
+                "url": "Get",
+                "dataSrc": ""
+            },
+            "columns": [
+                { "data": "IdEmpleado" },
+                { "data": "strNombre" },
+                { "data": "IdRol" },
+                { "data": "strCargo" },
+                { "data": "IdProfesion" }
+
+            ]
+
+        });
+    });
+    
+</script>
+
+<table id="example" class="display" style="width:70%">
+    <thead>
+        <tr>
+            <th>IdEmpleado</th>
+            <th>strNombre</th>
+            <th>IdRol</th>
+            <th>strCargo.</th>
+            <th>IdProfesion</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>IdEmpleado</th>
+            <th>strNombre</th>
+            <th>IdRol</th>
+            <th>strCargo.</th>
+            <th>IdProfesion</th>
+        </tr>
+    </tfoot>
+</table>
